@@ -1,7 +1,10 @@
 plugins {
-    id 'application'
+    id 'java'
+    id 'org.springframework.boot' version '3.5.4'
 }
 
+// SpringBoot의 버전의 맞춰 의존 라이브러리 버전을 관리하는 플러그인
+apply plugin: 'io.spring.dependency-management'
 
 repositories {
     mavenCentral() //의존 라이브러리를 갖고있는 중앙 저장소 서버의 주소를 지정.
@@ -9,6 +12,9 @@ repositories {
 
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.12.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -19,14 +25,15 @@ java {
     }
 }
 
-application {
-    mainClass = 'org.example.myapp.App'
-}
-
 jar {
     archiveFileName = 'myapp.jar'
 }
 
-tasks.named('run') {
-    standardInput = System.in // 표준 입력을 시스템 입력으로 설정
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaExec) {
+    systemProperty 'sun.stdout.encoding', 'UTF-8'
+    systemProperty 'sun.stderr.encoding', 'UTF-8'
 }
