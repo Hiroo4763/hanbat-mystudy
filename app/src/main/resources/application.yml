@@ -1,0 +1,12 @@
+server:
+  port: 9999 # 서버 포트 번호
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: myapp # 애플리케이션 이름
+
+
+#    .properties로 만들면 가독성이 떨어짐. 예)
+#    server.port=8888
+#    spring.application.name=myapp
