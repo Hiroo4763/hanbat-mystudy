@@ -13,11 +13,13 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    //thymeleaf 엔진은 HTML을 동적으로 바뀌게 해주는 플러그인
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.12.1'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 

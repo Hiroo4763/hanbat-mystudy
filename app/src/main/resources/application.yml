@@ -5,7 +5,12 @@ server:
 spring:
   application:
     name: myapp # 애플리케이션 이름
-
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/ #개발환경에서 바로바로 화면에 업데이트되게 하는 코드, 배포판에선 지워야함.
+  thymeleaf:
+    prefix: file:src/main/resources/templates/ #개발하는 동안 Thymeleaf 템플릿 파일이 변경될 때마다 즉시 반영
+    suffix: .html
 
 #    .properties로 만들면 가독성이 떨어짐. 예)
 #    server.port=8888
